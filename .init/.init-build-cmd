@@ -1,0 +1,4 @@
+{
+    "command": "npm install && npm run build",
+    "working_directory": "/home/kavia/workspace/code-generation/notes-app-demo-video-37324-37400/notes_app_demo_video_frontend"
+}
