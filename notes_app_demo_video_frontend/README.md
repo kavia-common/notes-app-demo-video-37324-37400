@@ -22,7 +22,14 @@ npm i
 **Start Preview**
 
 ```console
+# Binds to port 3000 by default and exposes /health for proxy checks
 npm run dev
+```
+
+**Healthcheck**
+```console
+# Check if studio is responsive
+npm run healthcheck
 ```
 
 **Render video**
@@ -36,6 +43,15 @@ npx remotion render
 ```console
 npx remotion upgrade
 ```
+
+## Environment
+
+- REMOTION_PORT: Defaults to 3000. Set if your environment requires a different port.
+- REMOTION_HEALTHCHECK_PATH: Defaults to /health. Used by proxy to detect readiness.
+- REMOTION_TRUST_PROXY: Set to "true" if running behind a proxy.
+- REMOTION_LOG_LEVEL: One of verbose|info|warn|error.
+
+See .env.example for more options.
 
 ## Docs
 

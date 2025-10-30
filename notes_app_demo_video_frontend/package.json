@@ -25,9 +25,10 @@
     "typescript": "5.5.4"
   },
   "scripts": {
-    "dev": "remotion studio",
+    "dev": "REMOTION_PORT=${REMOTION_PORT:-3000} remotion studio --port ${REMOTION_PORT:-3000}",
     "build": "remotion bundle",
     "upgrade": "remotion upgrade",
-    "lint": "eslint src && tsc"
+    "lint": "eslint src && tsc",
+    "healthcheck": "node -e \"require('http').get('http://localhost:'+(process.env.REMOTION_PORT||3000)+'/health',r=>{process.exit(r.statusCode===200?0:1)}).on('error',()=>process.exit(1))\""
   }
 }
