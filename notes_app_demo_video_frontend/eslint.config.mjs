@@ -1,6 +1,7 @@
-// eslint.config.mjs
+/* eslint.config.mjs */
 import typescript from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
+import reactHooks from 'eslint-plugin-react-hooks';
 
 export default [
   {
@@ -8,16 +9,20 @@ export default [
     languageOptions: {
       parser: tsParser,
       globals: {
-        React: 'readable'  // Add this line to define React as a global
+        React: 'readable'
       }
     },
     plugins: {
       '@typescript-eslint': typescript,
+      'react-hooks': reactHooks,
     },
     rules: {
       "no-undef": "error",
       "no-unused-vars": "off",
       "@typescript-eslint/no-unused-vars": "warn",
+      // React Hooks rules
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
     },
     ignores: ["node_modules/**", "dist/**", "build/**"]
   },
@@ -28,9 +33,14 @@ export default [
         React: 'readable'
       }
     },
+    plugins: {
+      'react-hooks': reactHooks,
+    },
     rules: {
       "no-undef": "error",
       "no-unused-vars": "warn",
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
     }
   }
 ];
